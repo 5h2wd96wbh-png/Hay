@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Script Store</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #08050d;
+      color: white;
+      display: flex;
+      justify-content: center;
+      padding: 25px 15px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 430px;
+    }
+
+    .header {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .header h1 {
+      font-size: 34px;
+      color: #b45cff;
+      text-shadow: 0 0 20px #8b2cff;
+    }
+
+    .header p {
+      color: #aaa;
+      margin-top: 8px;
+    }
+
+    .card {
+      background: rgba(25, 15, 35, 0.9);
+      border: 1px solid #8b2cff;
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 25px rgba(139, 44, 255, 0.18);
+    }
+
+    .card h2 {
+      color: #c477ff;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .buy {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #7b20ff, #b54cff);
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .buy:active {
+      transform: scale(0.97);
+    }
+
+    .payment {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: #120b19;
+      border-radius: 15px;
+      border: 1px solid #a13cff;
+      text-align: center;
+    }
+
+    .payment h3 {
+      color: #c477ff;
+      margin-bottom: 12px;
+    }
+
+    .cashapp {
+      font-size: 23px;
+      font-weight: bold;
+      color: #45ff88;
+      margin: 15px 0;
+    }
+
+    .cash-button {
+      display: inline-block;
+      text-decoration: none;
+      background: #20d65a;
+      color: black;
+      font-weight: bold;
+      padding: 13px 20px;
+      border-radius: 10px;
+      margin-top: 8px;
+    }
+
+    .footer {
+      text-align: center;
+      color: #666;
+      font-size: 13px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="header">
+      <h1>⚡ SCRIPT STORE</h1>
+      <p>Simple • Fast • Secure</p>
+    </div>
+
+    <div class="card">
+
+      <h2>⚔️ Duelo</h2>
+
+      <p>
+        Acceso al duelo.
+      </p>
+
+      <div class="price">$5.00</div>
+
+      <button class="buy" onclick="showPayment()">
+        🛒 COMPRAR — $5
+      </button>
+
+      <div class="payment" id="payment">
+
+        <h3>💳 PAGO</h3>
+
+        <p>
+          Envía exactamente <b>$5</b> mediante Cash App.
+        </p>
+
+        <div class="cashapp">
+          $isaai4909
+        </div>
+
+        <p>
+          Después de realizar el pago, conserva tu comprobante.
+        </p>
+
+        <a
+          class="cash-button"
+          href="https://cash.app/$isaai4909"
+          target="_blank"
+        >
+          💚 ABRIR CASH APP
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="footer">
+      © 2026 Script Store
+    </div>
+
+  </div>
+
+  <script>
+    function showPayment() {
+      const payment = document.getElementById("payment");
+
+      if (payment.style.display === "block") {
+        payment.style.display = "none";
+      } else {
+        payment.style.display = "block";
+      }
+    }
+  </script>
+
+  
+</body>
+</html>
