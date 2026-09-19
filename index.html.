@@ -1,0 +1,1257 @@
+@import "tailwindcss" source(none);
+
+@source "../src";
+
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+
+  --color-paper: #fdf2f2;
+
+  --color-ink: #2a1414;
+
+  --color-ink-deep: #1c0c0c;
+
+  --color-ink-soft: #8c5a5a;
+
+  --color-mint: #5fd39a;
+
+  --color-mint-soft: #d6f4e4;
+
+  --color-coral: #e63946;
+
+  --color-coral-deep: #b71c2c;
+
+  --color-coral-soft: #ffd6d6;
+
+  --color-lilac: #e63946;
+
+  --color-lilac-soft: #ffe0e0;
+
+  --color-sand: #f6d9d9;
+
+  --color-sand-soft: #fbeaea;
+
+  --color-sand-deep: #e8b8b8;
+
+  --color-track: #f3dada;
+
+  --font-display: "Fredoka", sans-serif;
+
+  --font-mono: "JetBrains Mono", monospace;
+
+}
+
+@keyframes pop {
+
+  0% {
+
+    opacity: 0;
+
+    transform: translateY(14px) scale(0.94);
+
+  }
+
+  100% {
+
+    opacity: 1;
+
+    transform: none;
+
+  }
+
+}
+
+@keyframes glowpulse {
+
+  0%,
+
+  100% {
+
+    box-shadow: 0 12px 26px -12px rgba(230, 57, 70, 0.45);
+
+  }
+
+  50% {
+
+    box-shadow: 0 12px 42px -6px rgba(230, 57, 70, 0.85);
+
+  }
+
+}
+
+@keyframes dial {
+
+  0% {
+
+    transform: rotate(0);
+
+  }
+
+  100% {
+
+    transform: rotate(360deg);
+
+  }
+
+}
+
+@utility pop {
+
+  animation: pop 0.5s cubic-bezier(0.32, 0.72, 0, 1) both;
+
+}
+
+@utility glow {
+
+  animation: glowpulse 2.2s ease-in-out infinite;
+
+}
+
+@utility dial {
+
+  animation: dial 4s linear infinite;
+
+}
+
+@theme inline {
+
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --radius-md: calc(var(--radius) - 2px);
+
+  --radius-lg: var(--radius);
+
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+
+  --color-input: var(--input);
+
+  --color-ring: var(--ring);
+
+  --color-ring-offset-background: var(--background);
+
+  --color-chart-1: var(--chart-1);
+
+  --color-chart-2: var(--chart-2);
+
+  --color-chart-3: var(--chart-3);
+
+  --color-chart-4: var(--chart-4);
+
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+
+  --color-sidebar-foreground: var(--sidebar-foreground);
+
+  --color-sidebar-primary: var(--sidebar-primary);
+
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+
+  --color-sidebar-accent: var(--sidebar-accent);
+
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+
+  --color-sidebar-border: var(--sidebar-border);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+
+}
+
+:root {
+
+  --radius: 0.625rem;
+
+  --background: oklch(1 0 0);
+
+  --foreground: oklch(0.129 0.042 264.695);
+
+  --card: oklch(1 0 0);
+
+  --card-foreground: oklch(0.129 0.042 264.695);
+
+  --popover: oklch(1 0 0);
+
+  --popover-foreground: oklch(0.129 0.042 264.695);
+
+  --primary: oklch(0.208 0.042 265.755);
+
+  --primary-foreground: oklch(0.984 0.003 247.858);
+
+  --secondary: oklch(0.968 0.007 247.896);
+
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+
+  --muted: oklch(0.968 0.007 247.896);
+
+  --muted-foreground: oklch(0.554 0.046 257.417);
+
+  --accent: oklch(0.968 0.007 247.896);
+
+  --accent-foreground: oklch(0.208 0.042 265.755);
+
+  --destructive: oklch(0.577 0.245 27.325);
+
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+
+  --border: oklch(0.929 0.013 255.508);
+
+  --input: oklch(0.929 0.013 255.508);
+
+  --ring: oklch(0.704 0.04 256.788);
+
+  --chart-1: oklch(0.646 0.222 41.116);
+
+  --chart-2: oklch(0.6 0.118 184.704);
+
+  --chart-3: oklch(0.398 0.07 227.392);
+
+  --chart-4: oklch(0.828 0.189 84.429);
+
+  --chart-5: oklch(0.769 0.188 70.08);
+
+  --sidebar: oklch(0.984 0.003 247.858);
+
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+
+  --sidebar-border: oklch(0.929 0.013 255.508);
+
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+
+}
+
+.dark {
+
+  --background: oklch(0.129 0.042 264.695);
+
+  --foreground: oklch(0.984 0.003 247.858);
+
+  --card: oklch(0.208 0.042 265.755);
+
+  --card-foreground: oklch(0.984 0.003 247.858);
+
+  --popover: oklch(0.208 0.042 265.755);
+
+  --popover-foreground: oklch(0.984 0.003 247.858);
+
+  --primary: oklch(0.929 0.013 255.508);
+
+  --primary-foreground: oklch(0.208 0.042 265.755);
+
+  --secondary: oklch(0.279 0.041 260.031);
+
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+
+  --muted: oklch(0.279 0.041 260.031);
+
+  --muted-foreground: oklch(0.704 0.04 256.788);
+
+  --accent: oklch(0.279 0.041 260.031);
+
+  --accent-foreground: oklch(0.984 0.003 247.858);
+
+  --destructive: oklch(0.704 0.191 22.216);
+
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+
+  --border: oklch(1 0 0 / 10%);
+
+  --input: oklch(1 0 0 / 15%);
+
+  --ring: oklch(0.551 0.027 264.364);
+
+  --chart-1: oklch(0.488 0.243 264.376);
+
+  --chart-2: oklch(0.696 0.17 162.48);
+
+  --chart-3: oklch(0.769 0.188 70.08);
+
+  --chart-4: oklch(0.627 0.265 303.9);
+
+  --chart-5: oklch(0.645 0.246 16.439);
+
+  --sidebar: oklch(0.208 0.042 265.755);
+
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+
+  --sidebar-border: oklch(1 0 0 / 10%);
+
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+
+}
+
+@layer base {
+
+  * {
+
+    border-color: var(--color-border);
+
+  }
+
+  body {
+
+    background-color: var(--color-background);
+
+    color: var(--color-foreground);
+
+  }
+
+}
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+import {
+
+  Outlet,
+
+  Link,
+
+  createRootRouteWithContext,
+
+  useRouter,
+
+  HeadContent,
+
+  Scripts,
+
+} from "@tanstack/react-router";
+
+import { useEffect, type ReactNode } from "react";
+
+import appCss from "../styles.css?url";
+
+import { reportLovableError } from "../lib/lovable-error-reporting";
+
+function NotFoundComponent() {
+
+  return (
+
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+
+      <div className="max-w-md text-center">
+
+        <h1 className="text-7xl font-bold text-foreground">404</h1>
+
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+
+        <p className="mt-2 text-sm text-muted-foreground">
+
+          The page you're looking for doesn't exist or has been moved.
+
+        </p>
+
+        <div className="mt-6">
+
+          <Link
+
+            to="/"
+
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+
+          >
+
+            Go home
+
+          </Link>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  );
+
+}
+
+function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+
+  console.error(error);
+
+  const router = useRouter();
+
+  useEffect(() => {
+
+    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+
+  }, [error]);
+
+  return (
+
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+
+      <div className="max-w-md text-center">
+
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+
+          This page didn't load
+
+        </h1>
+
+        <p className="mt-2 text-sm text-muted-foreground">
+
+          Something went wrong on our end. You can try refreshing or head back home.
+
+        </p>
+
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+
+          <button
+
+            onClick={() => {
+
+              router.invalidate();
+
+              reset();
+
+            }}
+
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+
+          >
+
+            Try again
+
+          </button>
+
+          <a
+
+            href="/"
+
+            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+
+          >
+
+            Go home
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  );
+
+}
+
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+
+  head: () => ({
+
+    meta: [
+
+      { charSet: "utf-8" },
+
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+
+      { title: "only66" },
+
+      { name: "description", content: "Completa 3 misiones de 50 segundos y genera tu llave única." },
+
+      { name: "author", content: "Lovable" },
+
+      { property: "og:title", content: "only66" },
+
+      { property: "og:description", content: "Completa 3 misiones de 50 segundos y genera tu llave única." },
+
+      { property: "og:type", content: "website" },
+
+      { name: "twitter:card", content: "summary_large_image" },
+
+      { name: "twitter:site", content: "@Lovable" },
+
+    ],
+
+    links: [
+
+      { rel: "stylesheet", href: appCss },
+
+      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+
+      {
+
+        rel: "stylesheet",
+
+        href: "https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap",
+
+      },
+
+    ],
+
+  }),
+
+  shellComponent: RootShell,
+
+  component: RootComponent,
+
+  notFoundComponent: NotFoundComponent,
+
+  errorComponent: ErrorComponent,
+
+});
+
+function RootShell({ children }: { children: ReactNode }) {
+
+  return (
+
+    <html lang="en">
+
+      <head>
+
+        <HeadContent />
+
+      </head>
+
+      <body>
+
+        {children}
+
+        <Scripts />
+
+      </body>
+
+    </html>
+
+  );
+
+}
+
+function RootComponent() {
+
+  const { queryClient } = Route.useRouteContext();
+
+  return (
+
+    <QueryClientProvider client={queryClient}>
+
+      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+
+      <Outlet />
+
+    </QueryClientProvider>
+
+  );
+
+}
+
+import { createFileRoute } from "@tanstack/react-router";
+
+import { useEffect, useRef, useState } from "react";
+
+export const Route = createFileRoute("/")({
+
+  head: () => ({
+
+    meta: [
+
+      { title: "only66 · 3 misiones, 1 llave" },
+
+      {
+
+        name: "description",
+
+        content:
+
+          "Completa 3 misiones de 50 segundos cada una y genera tu llave única.",
+
+      },
+
+      { property: "og:title", content: "only66 · 3 misiones, 1 llave" },
+
+      {
+
+        property: "og:description",
+
+        content:
+
+          "Completa 3 misiones de 50 segundos cada una y genera tu llave única.",
+
+      },
+
+      { property: "og:type", content: "website" },
+
+      { name: "twitter:card", content: "summary_large_image" },
+
+    ],
+
+  }),
+
+  component: Index,
+
+});
+
+const DURATION = 50;
+
+const MISSIONS = [
+
+  {
+
+    title: "El Templo Rotatorio",
+
+    hint: "Explora 50s el archivo de arte",
+
+    url: "https://artsandculture.google.com/",
+
+  },
+
+  {
+
+    title: "La Galería Oculta",
+
+    hint: "Mantén la pestaña abierta 50s",
+
+    url: "https://www.nasa.gov/multimedia/imagegallery/",
+
+  },
+
+  {
+
+    title: "El Códice Final",
+
+    hint: "Lee 50s el códice del día",
+
+    url: "https://es.wikipedia.org/wiki/Especial:Aleatoria",
+
+  },
+
+];
+
+const WORDS = ["upa", "onlyu", "zeta", "kira", "nova", "muro", "tora", "gema"];
+
+function randomKey() {
+
+  const n = Math.floor(100 + Math.random() * 900);
+
+  const w = WORDS[Math.floor(Math.random() * WORDS.length)];
+
+  const w2 = WORDS[Math.floor(Math.random() * WORDS.length)];
+
+  const d = Math.floor(10 + Math.random() * 90);
+
+  return `${n}-${w}-${w2}${d}`;
+
+}
+
+function Index() {
+
+  const [done, setDone] = useState<boolean[]>([false, false, false]);
+
+  const [active, setActive] = useState<number | null>(null);
+
+  const [left, setLeft] = useState(DURATION);
+
+  const [stage, setStage] = useState<"missions" | "key">("missions");
+
+  const [key, setKey] = useState<string | null>(null);
+
+  const [copied, setCopied] = useState(false);
+
+  const tabRef = useRef<Window | null>(null);
+
+  const completed = done.filter(Boolean).length;
+
+  const allDone = completed === 3;
+
+  useEffect(() => {
+
+    if (active === null) return;
+
+    if (left <= 0) {
+
+      setDone((d) => d.map((v, i) => (i === active ? true : v)));
+
+      setActive(null);
+
+      setLeft(DURATION);
+
+      try {
+
+        tabRef.current?.close();
+
+      } catch {
+
+        /* ignore */
+
+      }
+
+      tabRef.current = null;
+
+      return;
+
+    }
+
+    const t = setTimeout(() => setLeft((s) => s - 1), 1000);
+
+    return () => clearTimeout(t);
+
+  }, [active, left]);
+
+  const start = (i: number) => {
+
+    setLeft(DURATION);
+
+    setActive(i);
+
+    tabRef.current = window.open(MISSIONS[i]!.url, "_blank");
+
+  };
+
+  const pct = Math.round((completed / 3) * 100);
+
+  if (stage === "key") {
+
+    return (
+
+      <div className="min-h-screen bg-paper font-display text-ink antialiased">
+
+        <header className="flex items-center justify-between px-5 pt-5 pb-3">
+
+          <div className="flex items-center gap-2.5">
+
+            <div className="grid size-9 place-items-center rounded-2xl bg-ink text-lg font-bold text-paper shadow-[0_6px_0_var(--color-ink-deep)]">
+
+              66
+
+            </div>
+
+            <div className="leading-none">
+
+              <p className="text-[15px] font-bold tracking-tight">only66</p>
+
+              <p className="font-mono text-[10px] text-ink-soft">Generar llave</p>
+
+            </div>
+
+          </div>
+
+          <button
+
+            onClick={() => setStage("missions")}
+
+            className="rounded-2xl bg-white/60 px-3 py-1.5 font-mono text-[11px] text-ink-soft ring-1 ring-ink/5"
+
+          >
+
+            Volver
+
+          </button>
+
+        </header>
+
+        <section className="mt-4 px-5">
+
+          <h1 className="text-[22px] font-bold tracking-tight text-balance">
+
+            Tu llave está lista
+
+          </h1>
+
+          <p className="mt-2 text-[12px] text-ink-soft text-pretty">
+
+            Cada llave es única y aleatoria. Genera la tuya y cópiala.
+
+          </p>
+
+        </section>
+
+        <section className="mt-5 px-5 pb-8">
+
+          <div className="rounded-[28px] bg-sand-soft p-6 ring-1 ring-ink/5 shadow-[0_16px_0_-6px_var(--color-sand-deep)]">
+
+            <div className="flex items-center gap-2">
+
+              <span className="glow grid size-10 place-items-center rounded-2xl bg-coral text-lg font-bold text-white">
+
+                ✦
+
+              </span>
+
+              <p className="text-[13px] font-semibold text-ink/70">
+
+                {key ? "Llave generada" : "Presiona generar llave"}
+
+              </p>
+
+            </div>
+
+            <div className="mt-4 rounded-2xl bg-ink px-4 py-5 text-center text-paper">
+
+              <p className="font-mono text-[10px] tracking-[0.25em] text-white/40 uppercase">
+
+                Llave generada
+
+              </p>
+
+              <p className="mt-2 font-mono text-[26px] font-bold tracking-tight">
+
+                {key ?? "---.---.---"}
+
+              </p>
+
+            </div>
+
+            <button
+
+              onClick={() => {
+
+                setKey(randomKey());
+
+                setCopied(false);
+
+              }}
+
+              className="mt-3 w-full rounded-2xl bg-coral py-3.5 text-[15px] font-bold text-white shadow-[0_6px_0_var(--color-coral-deep)] active:translate-y-[3px] active:shadow-[0_2px_0_var(--color-coral-deep)]"
+
+            >
+
+              Generar llave
+
+            </button>
+
+            {key && (
+
+              <button
+
+                onClick={() => {
+
+                  navigator.clipboard?.writeText(key);
+
+                  setCopied(true);
+
+                }}
+
+                className="mt-3 w-full rounded-2xl bg-ink py-3.5 text-[15px] font-bold text-paper shadow-[0_6px_0_var(--color-ink-deep)] active:translate-y-[3px] active:shadow-[0_2px_0_var(--color-ink-deep)]"
+
+              >
+
+                {copied ? "¡Copiada!" : "Copiar llave"}
+
+              </button>
+
+            )}
+
+          </div>
+
+        </section>
+
+      </div>
+
+    );
+
+  }
+
+  return (
+
+    <div className="min-h-screen bg-paper font-display text-ink antialiased">
+
+      <header className="flex items-center justify-between px-5 pt-5 pb-3">
+
+        <div className="flex items-center gap-2.5">
+
+          <div className="grid size-9 place-items-center rounded-2xl bg-ink text-lg font-bold text-paper shadow-[0_6px_0_var(--color-ink-deep)]">
+
+            66
+
+          </div>
+
+          <div className="leading-none">
+
+            <p className="text-[15px] font-bold tracking-tight">only66</p>
+
+            <p className="font-mono text-[10px] text-ink-soft">3 misiones · 1 llave</p>
+
+          </div>
+
+        </div>
+
+        <div className="flex items-center gap-2 rounded-2xl bg-white/60 px-3 py-1.5 ring-1 ring-ink/5">
+
+          <span className="size-2 rounded-full bg-mint" />
+
+          <span className="font-mono text-[11px] text-ink-soft">{completed} / 3</span>
+
+        </div>
+
+      </header>
+
+      <section className="px-5 pt-2">
+
+        <div className="flex items-end justify-between">
+
+          <h1 className="text-[22px] font-bold tracking-tight text-balance">
+
+            Tu cofre, un clic a la vez
+
+          </h1>
+
+          <span className="font-mono text-[11px] text-ink-soft">{pct}%</span>
+
+        </div>
+
+        <div className="mt-3 h-4 overflow-hidden rounded-full bg-track ring-1 ring-ink/5">
+
+          <div
+
+            className="h-full rounded-full bg-mint transition-all duration-500"
+
+            style={{ width: `${pct}%` }}
+
+          />
+
+        </div>
+
+        <p className="mt-2 text-[12px] text-ink-soft text-pretty">
+
+          Completa las 3 misiones para abrir la llave.
+
+        </p>
+
+      </section>
+
+      <section className="mt-5 space-y-3 px-5">
+
+        {MISSIONS.map((m, i) => {
+
+          const isDone = done[i];
+
+          const isActive = active === i;
+
+          const locked = !isDone && !isActive && active !== null;
+
+          const num = String(i + 1).padStart(2, "0");
+
+          if (isDone) {
+
+            return (
+
+              <div
+
+                key={m.title}
+
+                className="pop flex items-center gap-3 rounded-3xl bg-white/70 p-3.5 ring-1 ring-ink/5 shadow-[0_10px_0_-4px_#e8b8b8]"
+
+              >
+
+                <div className="grid size-12 shrink-0 place-items-center rounded-2xl bg-mint-soft">
+
+                  <span className="text-xl font-bold text-mint">✓</span>
+
+                </div>
+
+                <div className="min-w-0 flex-1">
+
+                  <div className="flex items-center gap-2">
+
+                    <span className="font-mono text-[10px] text-ink-soft">{num}</span>
+
+                    <p className="truncate text-[15px] font-semibold tracking-tight">
+
+                      {m.title}
+
+                    </p>
+
+                  </div>
+
+                  <p className="truncate text-[12px] text-ink-soft">{m.hint}</p>
+
+                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-track">
+
+                    <div className="h-full w-full rounded-full bg-mint" />
+
+                  </div>
+
+                </div>
+
+                <span className="shrink-0 font-mono text-[11px] text-mint">Hecho</span>
+
+              </div>
+
+            );
+
+          }
+
+          if (isActive) {
+
+            return (
+
+              <div
+
+                key={m.title}
+
+                className="pop flex items-center gap-3 rounded-3xl bg-coral p-3.5 text-white ring-1 ring-ink/10 shadow-[0_12px_0_-4px_var(--color-coral-deep)]"
+
+              >
+
+                <div className="grid size-12 shrink-0 place-items-center rounded-2xl bg-white/20">
+
+                  <span className="dial text-lg font-bold">↻</span>
+
+                </div>
+
+                <div className="min-w-0 flex-1">
+
+                  <div className="flex items-center gap-2">
+
+                    <span className="font-mono text-[10px] text-white/70">{num}</span>
+
+                    <p className="truncate text-[15px] font-semibold tracking-tight">
+
+                      {m.title}
+
+                    </p>
+
+                  </div>
+
+                  <p className="truncate text-[12px] text-white/80">{m.hint}</p>
+
+                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/25">
+
+                    <div
+
+                      className="h-full rounded-full bg-white transition-all duration-1000"
+
+                      style={{ width: `${((DURATION - left) / DURATION) * 100}%` }}
+
+                    />
+
+                  </div>
+
+                </div>
+
+                <span className="shrink-0 font-mono text-[13px] font-bold">{left}s</span>
+
+              </div>
+
+            );
+
+          }
+
+          return (
+
+            <div
+
+              key={m.title}
+
+              className="pop flex items-center gap-3 rounded-3xl bg-lilac-soft/60 p-3.5 ring-1 ring-ink/5"
+
+            >
+
+              <div className="grid size-12 shrink-0 place-items-center rounded-2xl bg-white/50 text-ink-soft">
+
+                <span className="text-lg font-bold">{locked ? "🔒" : "◆"}</span>
+
+              </div>
+
+              <div className="min-w-0 flex-1">
+
+                <div className="flex items-center gap-2">
+
+                  <span className="font-mono text-[10px] text-ink-soft">{num}</span>
+
+                  <p className="truncate text-[15px] font-semibold tracking-tight text-ink/70">
+
+                    {m.title}
+
+                  </p>
+
+                </div>
+
+                <p className="truncate text-[12px] text-ink-soft/70">{m.hint}</p>
+
+                <div className="mt-2 h-2 overflow-hidden rounded-full bg-track">
+
+                  <div className="h-full w-0 rounded-full bg-lilac" />
+
+                </div>
+
+              </div>
+
+              {locked ? (
+
+                <span className="shrink-0 font-mono text-[11px] text-ink-soft">Bloq.</span>
+
+              ) : (
+
+                <button
+
+                  onClick={() => start(i)}
+
+                  className="shrink-0 rounded-2xl bg-coral px-3.5 py-2.5 text-[13px] font-bold text-white shadow-[0_5px_0_var(--color-coral-deep)] active:translate-y-[3px] active:shadow-[0_2px_0_var(--color-coral-deep)]"
+
+                >
+
+                  Iniciar
+
+                </button>
+
+              )}
+
+            </div>
+
+          );
+
+        })}
+
+      </section>
+
+      {active !== null && (
+
+        <section className="mt-7 px-5">
+
+          <p className="font-mono text-[10px] tracking-[0.2em] text-ink-soft uppercase">
+
+            Misión {String(active + 1).padStart(2, "0")} · en curso
+
+          </p>
+
+          <div className="mt-3 rounded-[28px] bg-ink p-6 text-paper shadow-[0_16px_0_-6px_var(--color-ink-deep)]">
+
+            <div className="flex items-center gap-5">
+
+              <div className="relative grid size-24 shrink-0 place-items-center">
+
+                <span className="absolute inset-0 rounded-full border-4 border-white/15" />
+
+                <span className="dial absolute inset-0 rounded-full border-4 border-mint border-t-transparent" />
+
+                <div className="text-center leading-none">
+
+                  <span className="text-3xl font-bold">{left}</span>
+
+                  <span className="mt-1 block font-mono text-[9px] text-white/50">SEG</span>
+
+                </div>
+
+              </div>
+
+              <div className="min-w-0">
+
+                <p className="text-[16px] font-semibold tracking-tight">
+
+                  {MISSIONS[active]!.title}
+
+                </p>
+
+                <p className="mt-1 text-[12px] text-white/60 text-pretty">
+
+                  Vuelve aquí al llegar a 0s y la misión quedará hecha.
+
+                </p>
+
+                <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/15">
+
+                  <div
+
+                    className="h-full rounded-full bg-mint transition-all duration-1000"
+
+                    style={{ width: `${((DURATION - left) / DURATION) * 100}%` }}
+
+                  />
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      )}
+
+      <section className="mt-6 px-5 pb-8">
+
+        <button
+
+          disabled={!allDone}
+
+          onClick={() => setStage("key")}
+
+          className={
+
+            allDone
+
+              ? "w-full rounded-3xl bg-ink py-4 text-[15px] font-bold tracking-tight text-paper shadow-[0_8px_0_var(--color-ink-deep)] active:translate-y-[3px] active:shadow-[0_3px_0_var(--color-ink-deep)]"
+
+              : "w-full rounded-3xl bg-track py-4 text-[15px] font-bold tracking-tight text-ink-soft/70 ring-1 ring-ink/5"
+
+          }
+
+        >
+
+          {allDone ? "Continuar" : `Continuar · ${completed} / 3 misiones`}
+
+        </button>
+
+      </section>
+
+    </div>
+
+  );
+
+}
